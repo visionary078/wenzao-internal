@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<title>少儿 AI × 编程与单片机硬件：完整课程体系方案（含二年级零基础专属课表）</title>
+<style>
+  @page { size: A4; margin: 7.5mm 10mm; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: "Microsoft YaHei", "微软雅黑", sans-serif;
+    color: #1c1915;
+    background: #fff;
+    font-size: 8.7pt;
+    line-height: 1.33;
+  }
+  h1 { font-size: 15.8pt; line-height: 1.18; margin: 0 0 3px; font-weight: 700; color: #161412; }
+  h2 { font-size: 10.8pt; margin: 4.5px 0 3px; font-weight: 700; color: #1c1915; border-left: 3.5px solid #8a5a2b; padding-left: 7px; }
+  h3 { font-size: 9.1pt; margin: 0 0 2px; font-weight: 700; color: #2b2620; }
+  p { margin: 0 0 3px; }
+  .kicker { letter-spacing: 0.08em; font-size: 7.6pt; color: #8a5a2b; margin-bottom: 2px; font-weight: 700; }
+  .lead { font-size: 8.9pt; color: #332e28; background: #fbf7f1; border: 1px solid #e4d8c8; padding: 5px 8px; border-radius: 5px; margin-bottom: 4px; }
+  .note { font-size: 7.5pt; color: #5c564e; }
+  .page { page-break-after: always; padding-bottom: 0; }
+  .page:last-child { page-break-after: auto; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin: 3px 0; }
+  .grid3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 6px; margin: 3px 0; }
+  .grid4 { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 5px; margin: 3px 0; }
+  .card { border: 1px solid #e4d8c8; background: #fbf7f1; padding: 4.5px 7px; border-radius: 5px; }
+  .card-blue { border: 1px solid #c5d7e8; background: #f2f7fb; padding: 4.5px 7px; border-radius: 5px; }
+  .card-green { border: 1px solid #c4dcc8; background: #f2f8f3; padding: 4.5px 7px; border-radius: 5px; }
+  .card-red { border: 1px solid #e2c2bc; background: #fcf3f1; padding: 4.5px 7px; border-radius: 5px; }
+  .card p, .card-blue p, .card-green p, .card-red p { margin: 0 0 2px; font-size: 8.2pt; }
+  .card ul, .card-blue ul, .card-green ul { margin: 1.5px 0 0; padding-left: 13px; font-size: 8.2pt; }
+  .card li, .card-blue li, .card-green li { margin-bottom: 1px; }
+  svg { width: 100%; height: auto; display: block; margin: 2px 0 3px; }
+  table { width: 100%; border-collapse: collapse; font-size: 8.1pt; margin: 2px 0 4px; }
+  th, td { border: 1px solid #e2d6c5; text-align: left; padding: 2.3px 4.5px; vertical-align: top; }
+  th { background: #f6efe6; color: #5a3d1e; font-weight: 700; }
+  code { font-family: Consolas, "Courier New", monospace; background: #f0eae1; padding: 1px 4px; border-radius: 3px; font-size: 7.9pt; }
+  .badge { display: inline-block; padding: 1px 5px; border-radius: 4px; font-size: 7.4pt; font-weight: 700; margin-right: 3px; }
+  .b-amber { background: #f4e3c8; color: #734716; }
+  .b-green { background: #dceddd; color: #245832; }
+  .b-blue { background: #dbeaf7; color: #1f4f78; }
+  .b-purple { background: #eadff2; color: #54306e; }
+  .footer { margin-top: 4px; font-size: 7.5pt; color: #7a7268; border-top: 1px solid #ece3d8; padding-top: 3px; display: flex; justify-content: space-between; }
+</style>
+</head>
+<body>
+
+<!-- ==================== PAGE 1 ==================== -->
+<section class="page">
+  <div class="kicker">课程体系完整方案 · 保护创造力 × 二年级Scratch入门到Arduino/PCB/3D建模 × AI追问与Agent × 商业价值产品</div>
+  <h1>少儿 AI × 编程与单片机硬件　完整课程体系方案</h1>
+  <div class="lead">
+    <strong>终极目标：以保护孩子创造力为核心，从二年级零基础起步，让孩子站在真实市场需求上做出具有商业价值的原创产品。</strong><br>
+    课程难度循序渐进，完全适配零基础小学生接受能力（坚决剔除 Linux、PID、傅里叶变换等劝退内容）：<br>
+    <strong>【L0 体验营】39.9元一日营 → 【1. 入门阶段（二年级主力）】Scratch 编程逻辑基础训练（循环/函数）+ 防呆硬件 → 【2. 进阶阶段（有基础切入）】Arduino 模块调用与简单通信协议 → 【3. 高阶阶段】PCB 绘制与 3D 建模设计 → 【4. 商业孵化】接入 AI Agent 打造高溢价产品。</strong>
+  </div>
+
+  <h2>一、我们的课程体系：从什么到什么？（技术 × 商业双螺旋五阶全景）</h2>
+  <svg viewBox="0 0 720 130" role="img" aria-label="从体验到Scratch入门、Arduino进阶、PCB与3D高阶、再到AI Agent商业产品的五阶路线图">
+    <defs>
+      <marker id="arr" markerWidth="7" markerHeight="7" refX="5" refY="3.5" orient="auto">
+        <path d="M0 0 L7 3.5 L0 7 Z" fill="#8a5a2b"/>
+      </marker>
+    </defs>
+    <!-- L0 -->
+    <rect x="4" y="5" width="128" height="118" rx="6" fill="#fbf3e4" stroke="#c89d66" stroke-width="1.5"/>
+    <text x="68" y="21" text-anchor="middle" font-size="10" font-weight="bold" fill="#734716">L0 一日体验营</text>
+    <text x="68" y="35" text-anchor="middle" font-size="8" fill="#5c564e">1天 · 39.9元引流筛选</text>
+    <text x="68" y="51" text-anchor="middle" font-size="8.6" fill="#1c1915">上午玩机甲+下午AI小装置</text>
+    <text x="68" y="65" text-anchor="middle" font-size="8.6" fill="#8a5a2b">商业：定第1个用户+算代币</text>
+    <text x="68" y="83" text-anchor="middle" font-size="8" fill="#5c564e">【二年级零门槛破冰】</text>
+    <text x="68" y="106" text-anchor="middle" font-size="8.4" font-weight="bold" fill="#8a3b32">带走：声光装置+宣传册</text>
+    <path d="M132 64 H148" stroke="#8a5a2b" stroke-width="1.8" marker-end="url(#arr)"/>
+
+    <!-- Stage 1 -->
+    <rect x="150" y="5" width="128" height="118" rx="6" fill="#eff1fa" stroke="#7c8cc4" stroke-width="1.5"/>
+    <text x="214" y="21" text-anchor="middle" font-size="10" font-weight="bold" fill="#2c3e80">1. 入门阶段（二年级）</text>
+    <text x="214" y="35" text-anchor="middle" font-size="8" fill="#5c564e">Scratch 编程逻辑基础训练</text>
+    <text x="214" y="51" text-anchor="middle" font-size="8.6" fill="#1c1915">掌握条件、循环、函数概念</text>
+    <text x="214" y="65" text-anchor="middle" font-size="8.6" fill="#2c3e80">商业：零件超市算账+跳蚤市集</text>
+    <text x="214" y="83" text-anchor="middle" font-size="8" fill="#5c564e">【零基础主力班·不劝退】</text>
+    <text x="214" y="106" text-anchor="middle" font-size="8.4" font-weight="bold" fill="#2c3e80">带走：防呆硬件互动作品</text>
+    <path d="M278 64 H294" stroke="#8a5a2b" stroke-width="1.8" marker-end="url(#arr)"/>
+
+    <!-- Stage 2 -->
+    <rect x="296" y="5" width="128" height="118" rx="6" fill="#e8f4fb" stroke="#5aa0c8" stroke-width="1.5"/>
+    <text x="360" y="21" text-anchor="middle" font-size="10" font-weight="bold" fill="#185a80">2. 进阶阶段（有基础）</text>
+    <text x="360" y="35" text-anchor="middle" font-size="8" fill="#5c564e">Arduino调用 + 简单通信</text>
+    <text x="360" y="51" text-anchor="middle" font-size="8.6" fill="#1c1915">传感器/舵机调用+双机通信</text>
+    <text x="360" y="65" text-anchor="middle" font-size="8.6" fill="#185a80">商业：访谈3真用户做MVP</text>
+    <text x="360" y="83" text-anchor="middle" font-size="8" fill="#5c564e">【从自嗨到真需求 MVP】</text>
+    <text x="360" y="106" text-anchor="middle" font-size="8.4" font-weight="bold" fill="#185a80">带走：解决真痛点的MVP</text>
+    <path d="M424 64 H440" stroke="#8a5a2b" stroke-width="1.8" marker-end="url(#arr)"/>
+
+    <!-- Stage 3 -->
+    <rect x="442" y="5" width="128" height="118" rx="6" fill="#eaf6ed" stroke="#68a878" stroke-width="1.5"/>
+    <text x="506" y="21" text-anchor="middle" font-size="10" font-weight="bold" fill="#245832">3. 高阶阶段（商品化）</text>
+    <text x="506" y="35" text-anchor="middle" font-size="8" fill="#5c564e">PCB 绘制 + 3D 建模设计</text>
+    <text x="506" y="51" text-anchor="middle" font-size="8.6" fill="#1c1915">甩掉飞线画电路板+打外壳</text>
+    <text x="506" y="65" text-anchor="middle" font-size="8.6" fill="#245832">商业：核算BOM成本+内测</text>
+    <text x="506" y="83" text-anchor="middle" font-size="8" fill="#5c564e">【从裸板原型变准商品】</text>
+    <text x="506" y="106" text-anchor="middle" font-size="8.4" font-weight="bold" fill="#245832">带走：专属PCB+3D壳产品</text>
+    <path d="M570 64 H586" stroke="#8a5a2b" stroke-width="1.8" marker-end="url(#arr)"/>
+
+    <!-- Stage 4 -->
+    <rect x="588" y="5" width="128" height="118" rx="6" fill="#fdf0ed" stroke="#b86252" stroke-width="1.5"/>
+    <text x="652" y="21" text-anchor="middle" font-size="10" font-weight="bold" fill="#8a2e1e">4. 终极孵化（Agent）</text>
+    <text x="652" y="35" text-anchor="middle" font-size="8" fill="#5c564e">硬件接 AI Agent + 商业变现</text>
+    <text x="652" y="51" text-anchor="middle" font-size="8.6" fill="#1c1915">五件套Prompt+硬件Tool调用</text>
+    <text x="652" y="65" text-anchor="middle" font-size="8.6" fill="#8a2e1e">商业：10倍溢价+市集认购</text>
+    <text x="652" y="83" text-anchor="middle" font-size="8" fill="#5c564e">【做出真商业价值产品】</text>
+    <text x="652" y="106" text-anchor="middle" font-size="8.4" font-weight="bold" fill="#8a2e1e">带走：可售卖AI智能硬件</text>
+  </svg>
+
+  <table>
+    <tr>
+      <th style="width:11%">阶段</th>
+      <th style="width:15%">适合谁进</th>
+      <th style="width:25%">技术线：编程 × 硬件 × AI 进展</th>
+      <th style="width:25%">商业产品线：如何从「玩具」变「商品」</th>
+      <th style="width:24%">阶段交付的实物成品与商业证据</th>
+    </tr>
+    <tr>
+      <td><span class="badge b-amber">L0</span><strong>体验营</strong><br>1天·39.9元</td>
+      <td><strong>二、三年级零基础</strong>（首期招生主力）</td>
+      <td>上午玩场地现有<strong>掌心机甲</strong>（留场内）；下午用 Scratch 改 2 个积木数字调通防呆声光盒，初识 AI 与死规则区别</td>
+      <td><strong>用户与成本启蒙</strong>：不做无主之物，先定「做给家里谁用」；用 100 以内加减法算第一张零件成本单</td>
+      <td><strong>声光感应小装置 1 件</strong> + A5 宣传册讲义 + 零件成本小票</td>
+    </tr>
+    <tr>
+      <td><span class="badge b-purple">1</span><strong>入门阶段</strong><br>8次×90分</td>
+      <td><strong>二年级零基础主力班</strong>（体验营升班）</td>
+      <td><strong>Scratch 编程逻辑基础训练</strong>：不动复杂英文代码，扎实掌握顺序、条件、<strong>循环、变量、函数（自制积木）</strong>，配防插反声光硬件；<strong>按住麦克风语音追问 AI</strong></td>
+      <td><strong>小小产品经理启蒙</strong>：给妈妈/同桌做一件解决小麻烦的装置；在「课堂零件超市」用预算币买模块；办班级跳蚤市集</td>
+      <td><strong>防呆硬件互动盒（如防吵闹提醒器/抽屉卫士）</strong> + 宣传册合订本</td>
+    </tr>
+    <tr>
+      <td><span class="badge b-blue">2</span><strong>进阶阶段</strong><br>8次×90分</td>
+      <td>完成入门；或<strong>有 Scratch 基础直接切入</strong></td>
+      <td><strong>Arduino 模块调用 + 简单通信协议</strong>：从 Scratch 过渡到调用真实超声波、温湿度、舵机，学习<strong>串口/双机简单通信协议</strong>；AI 当竞品调研与挑刺官</td>
+      <td><strong>走出教室找真需求</strong>：访谈 3 个真实用户拿回原话（拒绝自嗨伪需求）；查淘宝竞品差评，在 50 元 BOM 预算内做出 MVP</td>
+      <td><strong>解决真实生活痛点的 Arduino MVP 硬件</strong>（交真实用户试用 3 天签字）</td>
+    </tr>
+    <tr>
+      <td><span class="badge b-green">3</span><strong>高阶阶段</strong><br>8次×90分</td>
+      <td>完成进阶；或<strong>有代码/硬件基础跳级切入</strong></td>
+      <td><strong>PCB 绘制 + 3D 建模设计</strong>：告别一碰就松的面包板杜邦线，自己画专属 PCB 电路板；用 3D 建模设计并打印产品外壳与机械结构件</td>
+      <td><strong>从「实验室裸板」到「准商品」</strong>：完成工业级封装与防误触打磨；核算量产 BOM 成本；找 3~5 名种子用户内测迭代</td>
+      <td><strong>自制 PCB + 3D 打印外壳的准商品硬件 v1.0</strong> + 内测迭代报告</td>
+    </tr>
+    <tr>
+      <td><span class="badge b-amber">4</span><strong>终极孵化</strong><br>8次×90分</td>
+      <td>完成高阶；具备软硬件与结构综合能力</td>
+      <td><strong>给自制硬件接上 AI Agent</strong>：写五件套 System Prompt + 硬件函数调用（Tool Calling），打通「大模型大脑 ↔ 单片机小脑」</td>
+      <td><strong>用 AI Agent 创造 10 倍商业溢价</strong>：普通感应器淘宝 9.9 元包邮，接上垂直场景 Agent 变成高价值智能产品；上创客市集摆摊检验</td>
+      <td><strong>可发布的 AI Agent 硬件产品</strong> + 少年 OPC 商业评估页 + 市集认购单</td>
+    </tr>
+  </table>
+
+  <div class="card-red">
+    <h3>为什么这套体系既不劝退二年级零基础，又能留住有基础牛娃？</h3>
+    <p>1. <strong>二年级零基础绝不硬啃英文代码与复杂飞线</strong>：入门阶段老老实实用 <strong>Scratch + 防插反大颗粒硬件模块</strong> 把「循环、变量、函数」练透，用「零件超市买菜算账」启蒙商业成本。<br>
+    2. <strong>有基础的孩子绝不陪跑</strong>：入学 15 分钟小测，学过 Scratch 的直接进<strong>第 2 阶段（Arduino 模块调用 + 通信协议）</strong>；学过 Arduino/代码的直接进<strong>第 3/4 阶段（画 PCB + 3D 建模 + 接 AI Agent）</strong>。</p>
+  </div>
+
+  <div class="footer">
+    <span>少儿 AI × 编程与单片机硬件课程体系（二年级 Scratch 入门 → Arduino 进阶 → PCB/3D 高阶 → Agent 商业产品）</span>
+    <span>第 1 页 / 共 4 页 · 课程全景路线图与零基础/有基础分流</span>
+  </div>
+</section>
+
+<!-- ==================== PAGE 2 ==================== -->
+<section class="page">
+  <div class="kicker">二年级零基础专属方案 · 完全适配 7~8 岁认知特点的 Scratch + 防呆硬件 + 小小商业启蒙</div>
+  <h2>二、针对二年级零基础小朋友：专属课程怎么安排？（L0 体验营 + 入门阶段 8 次课详表）</h2>
+  <p>二年级小朋友（7~8岁）刚学完拼音、识字量有限、打字慢、坐不住 15 分钟纯听讲，但<strong>动手欲极强、喜欢扮演小老板、刚好在数学课学 100 以内加减法</strong>。因此二年级入门班专门做以下 4 项适配：</p>
+
+  <div class="grid4">
+    <div class="card-green">
+      <h3>1. 编程适配：Scratch 练逻辑</h3>
+      <p>不用敲英文代码！用 Scratch 积木把<strong>顺序、条件、循环、变量、函数（自制积木）</strong>练扎实，课前先用身体扮演「如果拍手就跳」，再拖积木。</p>
+    </div>
+    <div class="card-blue">
+      <h3>2. 硬件适配：防插反一插即亮</h3>
+      <p>不用容易插错烧板的面包板飞线！采用<strong>防插反 4 针接口/鳄鱼夹模块</strong>（大按钮、双色灯、声音、光敏、小舵机），插上就能被 Scratch 控制，每堂课都响都亮。</p>
+    </div>
+    <div class="card">
+      <h3>3. AI 适配：按住麦克风语音追问</h3>
+      <p>二年级不要求打字问 AI！电脑配麦克风，教孩子<strong>按住语音键用三步口诀追问 AI</strong>：「我是二年级小朋友，请用动画片比喻告诉我为什么…」</p>
+    </div>
+    <div class="card">
+      <h3>4. 商业适配：零件超市与跳蚤市集</h3>
+      <p>不讲复杂商业名词！每节课发<strong>「50 元创客预算币」</strong>去讲台零件超市买模块（正好练二年级加减法算 BOM 成本），第 8 课办「班级跳蚤市集」卖自己的作品！</p>
+    </div>
+  </div>
+
+  <h3>【二年级零基础 · 入门阶段 8 次课完整排期表】（每次 90 分钟：10分钟看现象 + 30分钟Scratch逻辑 + 30分钟接硬件改装 + 20分钟AI追问与费曼预演）</h3>
+  <table>
+    <tr>
+      <th style="width:11%">课次</th>
+      <th style="width:24%">Scratch 编程基础概念（零基础核心）</th>
+      <th style="width:22%">联动什么防呆真硬件</th>
+      <th style="width:23%">二年级版 AI 追问 × 商业产品小训练</th>
+      <th style="width:20%">当堂作品与宣传册记录</th>
+    </tr>
+    <tr>
+      <td><strong>L0 体验营</strong><br>周日 1天<br>39.9元</td>
+      <td>上午玩掌心机甲看「输入→动作」；下午在现成 Scratch 程序里<strong>只改 2 个积木数字</strong>（等待秒数与触发响度）</td>
+      <td>上午：场地现有 30 套掌心机甲<br>下午：可带走的防呆声光小套件</td>
+      <td>• <strong>定第 1 个用户</strong>：这件小装置送给爸爸还是妈妈？<br>• <strong>算第 1 张账</strong>：板子15元+灯5元+外壳10元=30元</td>
+      <td>15:30 给爸妈做 60 秒演示，<strong>带走声光感应装置 + 宣传册</strong></td>
+    </tr>
+    <tr>
+      <td><strong>第 1 课</strong><br>事件与顺序</td>
+      <td><strong>事件触发与顺序执行</strong>：`当按下开关` → 按先后顺序执行亮灯动作与 `等待( )秒`</td>
+      <td>外接大按钮模块 + 双色 LED 灯模块（防插反接口）</td>
+      <td>• <strong>用户场景</strong>：给怕黑的自己/妹妹做「床头延时伴睡灯」<br>• 自己决定亮几秒、闪几次，全班没有两盏一样的灯</td>
+      <td>宣传册第1册：专属节奏伴睡灯逻辑卡</td>
+    </tr>
+    <tr>
+      <td><strong>第 2 课</strong><br>循环概念</td>
+      <td><strong>循环（Loop）</strong>：掌握 `重复执行(N)次` 与 `一直重复执行` 的区别</td>
+      <td>蜂鸣器发声模块 + 红蓝双色灯交替闪烁</td>
+      <td>• <strong>AI 语音追问</strong>：按住麦克风追问 AI「为什么两块亮灭积木中间不放等待秒数，灯看起来就一直亮着不闪？」</td>
+      <td>宣传册第2册：可调次数的「桌面小警报器」</td>
+    </tr>
+    <tr>
+      <td><strong>第 3 课</strong><br>条件判断</td>
+      <td><strong>单条件判断</strong>：`如果 &lt;声音 &gt; 60&gt; 那么`（教机器看数字做决定）</td>
+      <td>声音传感器模块（实时读取拍手或说话音量数字）</td>
+      <td>• <strong>痛点小调查</strong>：问妈妈或老师「家里/教室什么时候最吵？」实测安静数值与吵闹数值，定下触发线</td>
+      <td>宣传册第3册：「写作业防吵闹提醒器」</td>
+    </tr>
+    <tr>
+      <td><strong>第 4 课</strong><br>双分支选择</td>
+      <td><strong>双分支判断</strong>：`如果…那么…否则…`（满足条件做 A，不满足自动恢复 B）</td>
+      <td>光敏传感器模块（检测天黑/抽屉被打开见光）</td>
+      <td>• <strong>零件超市算账（BOM启蒙）</strong>：用 40 元预算币去讲台选购传感器与灯，算出《我的第 1 张零件成本单》</td>
+      <td><strong>阶段小成品</strong>：「抽屉防偷看卫士」（打开响，关上停）</td>
+    </tr>
+    <tr>
+      <td><strong>第 5 课</strong><br>变量概念</td>
+      <td><strong>变量（Variable）</strong>：新建一个「记数小盒子」，每触发一次自动 `+1`</td>
+      <td>红外靠近传感器 + 屏幕大数字实时跳动显示</td>
+      <td>• <strong>防退货思维</strong>：问爸妈「如果只是路过抽屉就乱叫烦不烦？」把逻辑改成<strong>「偷看满 3 次才拉响大警报」</strong></td>
+      <td>宣传册第5册：会记数的「小猫跳桌/妹妹进屋记录仪」</td>
+    </tr>
+    <tr>
+      <td><strong>第 6 课</strong><br>函数封装</td>
+      <td><strong>函数概念（Scratch 自制积木）</strong>：把一整串闪灯+响铃+转角度动作打包成 1 个「超级积木块」</td>
+      <td>小舵机模块（能转动角度的机械小手臂，用来抬杆或摇旗）</td>
+      <td>• <strong>AI 语音追问</strong>：追问 AI「为什么要把 6 块积木打包成 1 块函数积木？」用套餐按钮比喻理解模块化</td>
+      <td>宣传册第6册：带函数大招的「桌面自动抬杆门卫」</td>
+    </tr>
+    <tr>
+      <td><strong>第 7 课</strong><br>我的第1件产品</td>
+      <td><strong>综合立项组装</strong>：自己组合「1个传感器输入 + 1个判断与变量 + 1个函数动作」</td>
+      <td>自选传感器 + 输出模块，装入自己装饰的底座与独立电池盒</td>
+      <td>• <strong>AI 扮演挑剔小买家</strong>：让 AI 给自己的作品挑 1 个小毛病并当场改好；填好《产品成本与售价牌》</td>
+      <td>封装完好的<strong>个人原创产品 v1.0</strong>（带回家给爸妈试用）</td>
+    </tr>
+    <tr>
+      <td><strong>第 8 课</strong><br>班级跳蚤市集</td>
+      <td><strong>脱稿演示与边界测试</strong>：现场演示正常触发 + 故意失败一次怎么恢复</td>
+      <td>全班作品摆摊通电展示（不靠老师代操作）</td>
+      <td>• <strong>小小创客跳蚤市集</strong>：每位入场家长获发 100 元「认购币」，听孩子 60 秒费曼推销后现场投票下单！</td>
+      <td><strong>带走成品硬件 + 8册合订宣传册 + 市集最佳销量奖</strong></td>
+    </tr>
+  </table>
+
+  <div class="footer">
+    <span>少儿 AI × 编程与单片机硬件课程体系（二年级 Scratch 入门 → Arduino 进阶 → PCB/3D 高阶 → Agent 商业产品）</span>
+    <span>第 2 页 / 共 4 页 · 二年级零基础专属 8 次课详表</span>
+  </div>
+</section>
+
+<!-- ==================== PAGE 3 ==================== -->
+<section class="page">
+  <div class="kicker">有基础进阶与高阶方案 · 从 Arduino 通信到 PCB/3D 建模与 AI Agent 商业孵化 + 宣传册讲义</div>
+  <h2>三、有编程基础的小朋友（或二年级学完入门后）：进阶与高阶怎么排？</h2>
+  <p>当孩子已经学完第 1 阶段 Scratch（掌握了循环、变量、函数），或者入学测评本身就有编程基础时，<strong>直接进入第 2～4 阶段，攻克「把实验室原型变成真商品」的硬核技术与成人一人公司（OPC）商业验证闭环</strong>：</p>
+
+  <table>
+    <tr>
+      <th style="width:12%">课次（8课周期）</th>
+      <th style="width:29%">第 2 阶段：Arduino 模块调用 + 简单通信协议</th>
+      <th style="width:30%">第 3 阶段：PCB 绘制 + 3D 建模设计（商品化）</th>
+      <th style="width:29%">第 4 阶段：接入 AI Agent + 商业溢价孵化</th>
+    </tr>
+    <tr>
+      <td><strong>第 1~2 课</strong><br>痛点立项与核心技术</td>
+      <td>• 把 Scratch 函数平滑映射为 <strong>Arduino 模块调用</strong>（超声波、温湿度、舵机）<br>• <strong>走出教室访谈 3 个真实用户</strong>，拿回 3 句抱怨原话立项</td>
+      <td>• 认识为什么杜邦线飞线不能当商品卖；学习 <strong>EDA 原理图与 PCB 绘制基础</strong><br>• 用 AI 拆解淘宝同类竞品的拆机结构与差评痛点</td>
+      <td>• 拆解「聊天机器人」与「硬件 Agent」区别<br>• 编写<strong>五件套 System Prompt</strong>（角色/目标/看什么传感器/调什么硬件函数/何时停下问人）</td>
+    </tr>
+    <tr>
+      <td><strong>第 3~4 课</strong><br>通信/建模与算清成本</td>
+      <td>• 学习<strong>简单通信协议</strong>（串口数据包 / 双板暗号收发，如门口检测、书桌报警）<br>• 核算 50 元以内硬件 BOM 成本表</td>
+      <td>• 完成<strong>专属 PCB 电路板布线</strong>（印上孩子自己的 Logo 与产品名）并投板<br>• 学习 <strong>3D 建模设计</strong>，为传感器和主板设计严丝合缝的外壳</td>
+      <td>• 定义结构化 JSON 硬件工具函数（Tool Calling，如 <code>{"tool":"servo","val":90}</code>）<br>• 打通「大模型 API ↔ 串口/Wi-Fi ↔ 单片机」闭环</td>
+    </tr>
+    <tr>
+      <td><strong>第 5~6 课</strong><br>做出 MVP 与破坏测试</td>
+      <td>• 组装双模块联动 <strong>MVP（最小可用产品 0.5版）</strong><br>• 做 5 次正常测试 + 2 次故意破坏测试，<strong>交真实用户回家试用 3 天</strong></td>
+      <td>• 用场地 <strong>3D 打印机</strong>打出外壳，焊接/组装自制 PCB 板，藏好所有走线<br>• 交付 3~5 名种子用户内测，收集真实使用槽点</td>
+      <td>• 将 AI Agent 接入自制 PCB+3D 外壳硬件（如老人用药确认盒、专注力毒舌/夸夸台灯）<br>• 做「故意捣乱指令」防越界安全停机测试</td>
+    </tr>
+    <tr>
+      <td><strong>第 7~8 课</strong><br>差评迭代与商业市集</td>
+      <td>• 根据用户试用 3 天的反馈<strong>只改最关键 1 处</strong><br>• 费曼脱稿 90 秒路演，带走 Arduino MVP 成品</td>
+      <td>• 修改 1 版外壳卡扣或滤波程序，定型 <strong>准商品 v1.0</strong><br>• 编写完整产品说明书、BOM 成本与定价表</td>
+      <td>• 算清「硬件 BOM + AI Token 调用成本」与 10 倍溢价定价逻辑<br>• <strong>创客市集摆摊发布</strong>，填妥《少年 OPC 商业评估表》</td>
+    </tr>
+  </table>
+
+  <h2>四、讲义怎么做？——「一课一册 A5 宣传册式讲义」（教材 × 产品手账 × 招生宣传册三合一）</h2>
+  <p>不印厚重枯燥的黑白课本，无论二年级入门班还是高阶班，<strong>每节课发一本 A5 彩色折页宣传册讲义（8页以内）</strong>。孩子课上贴图/填空/手写，下课连同硬件作品一起带回家——<strong>放在家里茶几上或拿给同学看，它本身就是一本展示孩子原创产品的精美宣传册！</strong></p>
+  <div class="grid4">
+    <div class="card">
+      <h3>P1-P2 产品封面与原理图</h3>
+      <p>• <strong>封面</strong>：今日解决的真痛点 + 产品名 + 小小主创工程师姓名。<br>
+      • <strong>核心逻辑页</strong>：二年级贴 Scratch 循环/函数图；高阶画 Arduino/PCB 信号图。</p>
+    </div>
+    <div class="card">
+      <h3>P3 同堂双出口任务单</h3>
+      <p>• <strong>上半页（基础版）</strong>：保底跑通的 1 个输入、1 次判断、1 个输出。<br>
+      • <strong>下半页（加难版）</strong>：提前做完的孩子自选多改一处（保护快孩子探索欲）。</p>
+    </div>
+    <div class="card">
+      <h3>P4-P5 AI 追问与成本单</h3>
+      <p>• <strong>AI 三连追问格</strong>：记录今天怎么追问 AI 弄懂难点的、拒绝了 AI 什么。<br>
+      • <strong>BOM 成本小票</strong>：零件超市单价合计 + 1 次故意失败测试记录。</p>
+    </div>
+    <div class="card">
+      <h3>P6-P8 费曼反馈与品牌页</h3>
+      <p>• <strong>课后费曼卡壳栏</strong>：回家给爸妈讲 60 秒，由爸妈圈出卡壳的那一句。<br>
+      • <strong>封底</strong>：导师手写肯定 + 四阶进阶全景图（天然的家长转介绍折页）。</p>
+    </div>
+  </div>
+
+  <h2>五、课中怎么教小朋友用 AI「追问」自己不懂的地方？（苏格拉底三步追问口诀）</h2>
+  <div class="card-green">
+    <p>遇到不懂的逻辑（如为什么要用函数、为什么传感器数值乱跳），老师不直接替他做，而是教孩子按宣传册 P4 页的<strong>「三步追问阶梯」</strong>把 AI 问透（二年级直接按住麦克风语音问）：</p>
+    <table style="margin:2px 0 0; background:#fff;">
+      <tr>
+        <th style="width:20%">追问阶梯</th>
+        <th style="width:42%">二年级/小学生问 AI 的句式模板</th>
+        <th style="width:38%">训练孩子的什么能力？</th>
+      </tr>
+      <tr>
+        <td><strong>第 1 问：定身份、要比喻、禁代做</strong></td>
+        <td><em>「我是二年级小朋友，我不懂为什么这里要用『自制积木（函数）』。请用动画片或生活里的例子讲给我听，<strong>不要直接替我写答案</strong>。」</em></td>
+        <td>学会给 AI 划边界，让 AI 说孩子听得懂的人话，杜绝黑盒代做。</td>
+      </tr>
+      <tr>
+        <td><strong>第 2 问：揪住不懂处追问「如果…会怎样」</strong></td>
+        <td><em>「你说的『重复调用』是什么意思？<strong>如果我把等待 1 秒改成 0 秒，我的报警灯在现实里会发生什么怪事？</strong>」</em></td>
+        <td>把屏幕里的抽象概念和手里硬件的真实物理现象绑在一起追问到底。</td>
+      </tr>
+      <tr>
+        <td><strong>第 3 问：反向考 AI（我讲你听）</strong></td>
+        <td><em>「我听懂了！你的意思是<strong>函数就像把做汉堡的几步打包成一个套餐按钮</strong>，对吗？我说得不对请纠正我。」</em></td>
+        <td>课内即时费曼验证——确认自己真懂了，再动手改程序。</td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="footer">
+    <span>少儿 AI × 编程与单片机硬件课程体系（二年级 Scratch 入门 → Arduino 进阶 → PCB/3D 高阶 → Agent 商业产品）</span>
+    <span>第 3 页 / 共 4 页 · 进阶高阶排期、A5 宣传册讲义与 AI 三步追问法</span>
+  </div>
+</section>
+
+<!-- ==================== PAGE 4 ==================== -->
+<section class="page">
+  <div class="kicker">费曼学习法课后反馈闭环 · 少年 OPC 商业评估表 + 首期落地执行</div>
+  <h2>六、课后反馈怎么做？——「助教 4 格反馈卡 + 孩子周末费曼学习法反转反馈」双闭环</h2>
+  <p>传统机构只有「老师单向发群总结」，孩子回家一问三不知。我们设计了<strong>「下课 2 小时内助教发 4 格卡（给家长递问题）+ 周末孩子用费曼学习法向爸妈讲 60 秒（标出卡壳句回课补缺）」</strong>的双向闭环：</p>
+
+  <div class="grid2">
+    <div class="card-green">
+      <h3>动作 A（老师→家长）：下课 2 小时内发《当次课后 4 格反馈卡》</h3>
+      <p>配 <strong>1 张宣传册手写/作品照 + 1 段 10 秒硬件动作视频</strong>（以二年级入门班第 5 课为例，每人 120 字内）：</p>
+      <ul>
+        <li><strong>1. 今日掌握的编程与硬件</strong>：「今天在 Scratch 里学会了新建『变量记数盒』和条件判断，自己插对了红外靠近传感器和蜂鸣器。」</li>
+        <li><strong>2. 今日他的产品/商业决定</strong>：「老师给的例子是一靠近就响，<strong>他觉得路过也会误报太吵，自己决定改成『小猫靠近满 3 次才拉响警报』</strong>，并在零件超市用 35 元预算币算清了成本。」</li>
+        <li><strong>3. 课上怎么追问 AI 解卡点的</strong>：「他一开始分不清『变量设为 0』和『变量增加 1』，按住麦克风用三步法追问 AI，听懂了『存钱罐清零 vs 投硬币』的比喻，自己调通了程序。」</li>
+        <li><strong>4. 给爸妈的费曼提问锦囊</strong>：「今晚请让他拿带回来的装置给您演示，<strong>您只需问他一句：『为什么我手伸过去第 1 次它不响，第 3 次才响？』</strong>并在宣传册 P6 帮他圈出讲卡壳的那一句！」</li>
+      </ul>
+    </div>
+
+    <div class="card-blue">
+      <h3>动作 B（孩子→家长→回课）：课后「费曼四步反馈法」（核心留存利器）</h3>
+      <p>要求孩子每周回家拿着<strong>实物作品 + A5 宣传册讲义</strong>，对爸妈完成费曼四步反馈（录 60 秒视频发群或在讲义 P6 签字）：</p>
+      <ul>
+        <li><strong>第 1 步（选定一件事）</strong>：只讲这周做的这 1 件作品、这 1 个核心概念（如循环/变量/函数）、这 1 个传感器。</li>
+        <li><strong>第 2 步（脱稿讲给外行听）</strong>：不看电脑屏幕，像向买家推销一样给爸妈讲清楚「它在测什么、怎么判断、为什么值这个价」。</li>
+        <li><strong>第 3 步（爸妈帮圈「卡壳句」）</strong>：爸妈不需要懂编程！只要孩子说到<strong>「反正它就智能地响了」「然后就…」或解释不出为什么这样改</strong>，爸妈就在讲义 P6 把那个词圈出来。</li>
+        <li><strong>第 4 步（下节课前 10 分钟只补这一处）</strong>：下周上课前 10 分钟，老师专门针对他上周圈出的那句卡壳话，带他重测一次硬件，补上缺口再讲一遍，盖「费曼通关章」！</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>七、怎么评估作品的商业价值？（第 8 课结课《小小创客 / 少年 OPC 产品商业评估表》）</h2>
+  <table>
+    <tr>
+      <th style="width:18%">评估维度</th>
+      <th style="width:42%">二年级入门版（班级跳蚤市集口头+填空）</th>
+      <th style="width:40%">进阶/高阶版（少年 OPC 真实市场检验标准）</th>
+    </tr>
+    <tr>
+      <td><strong>1. 目标用户与痛点</strong></td>
+      <td>我这件装置是做给家里/班里谁用的？帮他解决什么小麻烦？</td>
+      <td>具体哪一类人在什么场景下遇到什么痛点？必须指到真实具体的人。</td>
+    </tr>
+    <tr>
+      <td><strong>2. 真实用户原话</strong></td>
+      <td>我问过爸爸/妈妈/同桌，他最烦的一句话是怎么说的？</td>
+      <td>走出教室访谈 3 个潜在用户，带回至少 3 句抱怨原话（拒绝自己编造）。</td>
+    </tr>
+    <tr>
+      <td><strong>3. 差异化与创意点</strong></td>
+      <td>我今天自己决定改了哪一处，让它跟老师的例子不一样？</td>
+      <td>对比淘宝现有竞品的价格与差评，我的产品比现有办法多解决了哪一步？</td>
+    </tr>
+    <tr>
+      <td><strong>4. 编程硬件与 AI 追问</strong></td>
+      <td>用了哪个传感器、哪块循环/函数积木？我追问了 AI 什么问题？</td>
+      <td>用了什么通信协议/PCB/3D结构/Agent工具？我采纳和拒绝了 AI 什么？</td>
+    </tr>
+    <tr>
+      <td><strong>5. BOM 成本与定价</strong></td>
+      <td>在课堂零件超市一共花了几元预算币？跳蚤市集卖几元？</td>
+      <td>主控+传感器+PCB+3D打印外壳+Token 实算多少元？市场定价多少元？</td>
+    </tr>
+    <tr>
+      <td><strong>6. 压力测试与费曼复盘</strong></td>
+      <td>当场演示 1 次成功 + 1 次故意让它不响；把上次卡壳的话讲顺。</td>
+      <td>真实用户试用 3 天哪里失灵过？如果做 2.0 版下一步只改哪一处？</td>
+    </tr>
+  </table>
+
+  <h2>八、首期落地执行汇总（对齐 10月16日研讨会纪要）</h2>
+  <div class="grid3">
+    <div class="card">
+      <h3>1. 招生切口与 39.9元体验营</h3>
+      <p>• 首期主攻<strong>二、三年级零基础</strong>（进 39.9 元体验营 → 转第 1 阶段 Scratch 入门班）；有基础的小测后直通 Arduino 进阶班。<br>
+      • 体验营定在下周日，<strong>首波招 10~20 人小范围验证</strong>。</p>
+    </div>
+    <div class="card">
+      <h3>2. 设备零新增复用 + 宣传册带走</h3>
+      <p>• 体验营上午复用场地现有 <strong>30 套掌心机甲与 3D 打印机</strong>（机甲留场内，零采购成本）。<br>
+      • 下午及正式课每阶段均产出可带走的<strong>实物成品 + A5 宣传册讲义</strong>。</p>
+    </div>
+    <div class="card">
+      <h3>3. 转化路径与合规护栏</h3>
+      <p>• 体验营 15:30 家长到场看孩子用费曼法演示成品+零件成本卡，宣讲正式课并拉微信群转化。<br>
+      • <strong>不做大学生上门授课</strong>；借势高校科创基地氛围但<strong>绝不印学校校徽</strong>。</p>
+    </div>
+  </div>
+
+  <div class="footer">
+    <span>少儿 AI × 编程与单片机硬件课程体系（二年级 Scratch 入门 → Arduino 进阶 → PCB/3D 高阶 → Agent 商业产品）</span>
+    <span>第 4 页 / 共 4 页 · 课后费曼反馈闭环、二年级/高阶分级商业评估与落地执行</span>
+  </div>
+</section>
+
+</body>
+</html>

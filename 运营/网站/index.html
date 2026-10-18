@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>量子工坊 · 创造力课</title>
+  <meta name="description" content="从二年级开始。AI 是工具，作品是孩子自己的。积木逻辑、单片机、能带走的实物。10月25日体验营，39.9元，首期10到20人。">
+  <style>
+    :root {
+      --paper: #f3ecdf;
+      --paper-2: #fffaf3;
+      --ink: #1a1714;
+      --muted: #5e574c;
+      --line: #d8cebf;
+      --amber: #c45012;
+      --amber-soft: #f3d2bf;
+      --led: #e7a322;
+      --green: #215c50;
+      --green-soft: #d7ebe4;
+      --shadow: 0 18px 40px rgba(40, 28, 16, 0.08);
+      --serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Songti SC", "Noto Serif SC", serif;
+      --sans: "Microsoft YaHei", "PingFang SC", "Noto Sans SC", sans-serif;
+      --kai: KaiTi, "Kaiti SC", STKaiti, serif;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      font-family: var(--sans);
+      font-size: 16px;
+      line-height: 1.65;
+      background:
+        radial-gradient(circle at 12% 8%, rgba(231, 163, 34, 0.16), transparent 28%),
+        linear-gradient(180deg, rgba(255,255,255,0.45), transparent 220px),
+        var(--paper);
+    }
+    body::before {
+      content: "";
+      pointer-events: none;
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(26,23,20,0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(26,23,20,0.035) 1px, transparent 1px);
+      background-size: 28px 28px;
+      mask-image: linear-gradient(180deg, #000 0%, transparent 78%);
+    }
+    a { color: inherit; }
+    button, input, select, textarea { font: inherit; color: inherit; }
+    .wrap { width: min(1120px, calc(100% - 32px)); margin: 0 auto; }
+    .skip {
+      position: absolute; left: 12px; top: -40px; background: var(--ink); color: white;
+      padding: 8px 12px; z-index: 20;
+    }
+    .skip:focus { top: 12px; }
+
+    header {
+      position: sticky; top: 0; z-index: 10;
+      backdrop-filter: blur(10px);
+      background: rgba(243, 236, 223, 0.9);
+      border-bottom: 1px solid var(--line);
+    }
+    .bar {
+      display: flex; align-items: center; justify-content: space-between;
+      min-height: 64px; gap: 16px;
+    }
+    .mark { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .led {
+      width: 14px; height: 14px; border-radius: 50%;
+      background: radial-gradient(circle at 35% 35%, #ffe7a8, var(--led) 42%, #a8640d);
+      box-shadow: 0 0 0 4px rgba(231, 163, 34, 0.25);
+    }
+    .mark b { font-weight: 700; letter-spacing: 0.04em; }
+    .mark span { color: var(--muted); font-size: 13px; }
+    nav { display: flex; gap: 18px; align-items: center; font-size: 14px; }
+    nav a { text-decoration: none; color: var(--muted); }
+    nav a:hover { color: var(--ink); }
+    .nav-cta {
+      background: var(--ink); color: white !important;
+      padding: 8px 12px; border-radius: 999px; text-decoration: none;
+    }
+
+    .hero { padding: 54px 0 28px; display: grid; grid-template-columns: 1.25fr 0.75fr; gap: 36px; align-items: end; }
+    .kicker { margin: 0 0 12px; color: var(--amber); font-size: 13px; letter-spacing: 0.14em; }
+    h1 {
+      margin: 0;
+      font-family: var(--serif);
+      font-weight: 560;
+      font-size: clamp(42px, 6vw, 78px);
+      line-height: 1.02;
+      letter-spacing: -0.03em;
+    }
+    .creed {
+      margin: 18px 0 0;
+      font-family: var(--kai);
+      font-size: 22px;
+      line-height: 1.45;
+    }
+    .lede { margin: 14px 0 0; max-width: 640px; color: var(--muted); font-size: 17px; }
+    .actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      min-height: 44px; padding: 0 16px; border-radius: 999px;
+      text-decoration: none; border: 1px solid var(--ink); background: var(--ink); color: white;
+      cursor: pointer;
+    }
+    .btn.ghost { background: transparent; color: var(--ink); }
+    .btn:focus-visible, a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+      outline: 2px solid var(--amber); outline-offset: 2px;
+    }
+    .still {
+      background: var(--paper-2);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+      padding: 16px 16px 8px;
+    }
+    .still svg { width: 100%; height: auto; display: block; }
+    .still figcaption { color: var(--muted); font-size: 13px; padding: 4px 4px 8px; }
+
+    .facts { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; padding-bottom: 18px; }
+    .fact {
+      background: rgba(255,250,243,0.72);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 14px 14px 12px;
+      min-height: 112px;
+    }
+    .fact em { display: block; font-style: normal; font-family: var(--serif); font-size: 28px; line-height: 1; }
+    .fact p { margin: 8px 0 0; color: var(--muted); font-size: 14px; }
+
+    section { padding: 34px 0; }
+    .sec-kicker { margin: 0; color: var(--green); font-size: 13px; letter-spacing: 0.12em; }
+    h2 { margin: 6px 0 8px; font-family: var(--serif); font-size: clamp(30px, 4vw, 46px); line-height: 1.1; font-weight: 560; }
+    .sec-lead { margin: 0 0 18px; max-width: 720px; color: var(--muted); }
+
+    .path { display: grid; gap: 10px; }
+    .stage {
+      width: 100%; text-align: left; cursor: pointer;
+      display: grid; grid-template-columns: 72px 1fr auto; gap: 14px; align-items: start;
+      background: var(--paper-2); border: 1px solid var(--line); border-radius: 16px;
+      padding: 16px 16px 14px;
+    }
+    .stage[aria-expanded="true"] { border-color: #1a1714; }
+    .stage .no { font-family: var(--serif); font-size: 28px; line-height: 1; color: var(--amber); }
+    .stage h3 { margin: 0; font-size: 20px; }
+    .stage .meta { margin: 4px 0 0; color: var(--muted); font-size: 14px; }
+    .pill {
+      font-size: 12px; letter-spacing: 0.04em; border-radius: 999px;
+      padding: 4px 8px; border: 1px solid var(--line); white-space: nowrap;
+    }
+    .pill.now { background: var(--amber); color: white; border-color: var(--amber); }
+    .pill.next { background: var(--green-soft); color: var(--green); border-color: transparent; }
+    .pill.later { background: transparent; color: var(--muted); }
+    .detail { display: none; grid-column: 2 / -1; padding-top: 8px; }
+    .stage[aria-expanded="true"] .detail { display: block; }
+    .detail ul { margin: 8px 0 0; padding-left: 18px; }
+    .detail li + li { margin-top: 4px; }
+
+    .split { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 18px; }
+    .card {
+      background: var(--paper-2); border: 1px solid var(--line); border-radius: 16px; padding: 18px;
+    }
+    .beats { list-style: none; margin: 0; padding: 0; }
+    .beats li { display: grid; grid-template-columns: 42px 1fr; gap: 10px; padding: 10px 0; border-top: 1px solid var(--line); }
+    .beats b { font-family: var(--serif); font-size: 20px; color: var(--amber); }
+    .ban { background: #1a1714; color: #f6f0e6; }
+    .ban h3 { margin: 0 0 8px; font-family: var(--serif); font-size: 28px; font-weight: 560; }
+    .ban ul { margin: 0; padding-left: 18px; }
+    .ban li + li { margin-top: 6px; }
+
+    .ai-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 18px; }
+    .rows { display: grid; gap: 8px; }
+    .row {
+      display: grid; grid-template-columns: 92px 1fr; gap: 10px; align-items: center;
+      border: 1px dashed var(--line); border-radius: 12px; padding: 10px 12px; background: #fff;
+    }
+    .row b { font-size: 14px; }
+
+    .ticket {
+      display: grid; grid-template-columns: 1.4fr 0.8fr;
+      background: white; border-radius: 18px; overflow: hidden;
+      border: 1px solid var(--line); box-shadow: var(--shadow);
+    }
+    .ticket-main { padding: 22px; }
+    .ticket-side {
+      background:
+        radial-gradient(circle at left, transparent 12px, #215c50 13px) left center / 18px 28px repeat-y,
+        #215c50;
+      color: white; padding: 22px 22px 22px 34px;
+      display: flex; flex-direction: column; justify-content: space-between; gap: 16px;
+    }
+    .price { font-family: var(--serif); font-size: 56px; line-height: 0.9; margin: 0; }
+    .price small { font-size: 18px; }
+    .agenda { width: 100%; border-collapse: collapse; margin-top: 8px; }
+    .agenda th, .agenda td { text-align: left; vertical-align: top; padding: 8px 8px 8px 0; border-top: 1px solid var(--line); }
+    .agenda th { width: 88px; color: var(--muted); font-weight: 600; }
+
+    form { display: grid; grid-template-columns: 1fr 1fr; gap: 12px 14px; }
+    label { display: grid; gap: 6px; font-size: 14px; }
+    label.full { grid-column: 1 / -1; }
+    input, select, textarea {
+      width: 100%; background: white; border: 1px solid var(--line); border-radius: 10px;
+      padding: 10px 12px; min-height: 44px;
+    }
+    textarea { min-height: 96px; resize: vertical; }
+    .err { color: var(--amber); min-height: 1.2em; font-size: 13px; }
+    .form-actions { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+    .note { color: var(--muted); font-size: 13px; margin: 0; }
+
+    .receipt {
+      display: none; border: 1px solid var(--ink); border-radius: 16px; padding: 16px; background: white;
+    }
+    .receipt.show { display: block; }
+    .receipt h3 { margin: 0 0 6px; font-family: var(--serif); font-size: 28px; }
+    .receipt pre {
+      white-space: pre-wrap; font-family: var(--sans); background: var(--paper); padding: 12px; border-radius: 10px;
+    }
+
+    .faq { display: grid; gap: 8px; }
+    details { background: var(--paper-2); border: 1px solid var(--line); border-radius: 12px; padding: 10px 14px; }
+    summary { cursor: pointer; font-weight: 700; }
+    details p { margin: 8px 0 2px; color: var(--muted); }
+
+    footer { border-top: 1px solid var(--line); padding: 22px 0 40px; color: var(--muted); font-size: 13px; }
+    footer details { background: transparent; }
+    table.export { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 8px; }
+    table.export th, table.export td { border-bottom: 1px solid var(--line); text-align: left; padding: 6px 4px; }
+
+    @media (max-width: 860px) {
+      nav .quiet { display: none; }
+      .hero, .facts, .split, .ai-grid, .ticket, form { grid-template-columns: 1fr; }
+      .stage { grid-template-columns: 52px 1fr; }
+      .pill { grid-column: 2; justify-self: start; }
+      .detail { grid-column: 1 / -1; }
+      .ticket-side {
+        background: #215c50;
+        padding: 18px;
+      }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+    }
+    @media print {
+      header, .actions, form, footer, .still { display: none !important; }
+      body { background: white; }
+      body::before { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">跳到正文</a>
+  <header>
+    <div class="wrap bar">
+      <a class="mark" href="#top">
+        <i class="led" aria-hidden="true"></i>
+        <b>量子工坊</b>
+        <span>创造力课</span>
+      </a>
+      <nav>
+        <a class="quiet" href="#path">课程路径</a>
+        <a class="quiet" href="#camp">体验营</a>
+        <a class="nav-cta" href="#signup">报名 10月25日</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="wrap hero" id="top">
+      <div>
+        <p class="kicker">二年级起步 · 首期小班</p>
+        <h1>把创造力<br>留在他手里</h1>
+        <p class="creed">先保住他还愿意自己试试。考试和以后的专业，学校会管。这门课管另一件事：发现问题、动手、改错、把作品讲出来。</p>
+        <p class="lede">从二年级开始招生。AI 用来想和挑错，积木和单片机用来把决定做成能带回家的东西。不把对话框丢给孩子闲聊，也不把大学课提前塞进小学。</p>
+        <div class="actions">
+          <a class="btn" href="#path">看四段作品</a>
+          <a class="btn ghost" href="#signup">报 10月25日体验营</a>
+        </div>
+      </div>
+      <figure class="still">
+        <svg viewBox="0 0 360 280" role="img" aria-label="积木、单片机和小灯连成一件作品">
+          <rect x="18" y="28" width="150" height="54" rx="12" fill="#f08a2a"/>
+          <rect x="34" y="18" width="22" height="16" rx="4" fill="#f08a2a"/>
+          <rect x="66" y="18" width="22" height="16" rx="4" fill="#f08a2a"/>
+          <text x="36" y="61" fill="#fff" font-size="16" font-family="Microsoft YaHei">如果 按下</text>
+          <rect x="18" y="98" width="168" height="54" rx="12" fill="#215c50"/>
+          <rect x="34" y="88" width="22" height="16" rx="4" fill="#215c50"/>
+          <text x="36" y="131" fill="#fff" font-size="16" font-family="Microsoft YaHei">就 让灯亮</text>
+          <path d="M188 124 H230" stroke="#1a1714" stroke-width="2" fill="none"/>
+          <path d="M224 118 l8 6 -8 6" fill="none" stroke="#1a1714" stroke-width="2"/>
+          <rect x="232" y="78" width="104" height="132" rx="10" fill="#1a1714"/>
+          <rect x="246" y="92" width="76" height="48" rx="4" fill="#2a2622"/>
+          <circle cx="262" cy="168" r="7" fill="#e7a322"/>
+          <circle cx="286" cy="168" r="7" fill="#d7ebe4"/>
+          <circle cx="310" cy="168" r="7" fill="#c45012"/>
+          <rect x="252" y="186" width="64" height="8" rx="2" fill="#5e574c"/>
+          <text x="248" y="228" fill="#f3ecdf" font-size="12" font-family="Microsoft YaHei">单片机</text>
+          <circle cx="92" cy="214" r="22" fill="#e7a322"/>
+          <circle cx="92" cy="214" r="10" fill="#fff4d2"/>
+          <path d="M92 192 v-18 M110 204 h16" stroke="#1a1714" stroke-width="2"/>
+          <text x="124" y="236" fill="#5e574c" font-size="13" font-family="Microsoft YaHei">这盏灯是他选定的</text>
+        </svg>
+        <figcaption>同一句话，先用积木说清，再交到单片机上。</figcaption>
+      </figure>
+    </div>
+
+    <div class="wrap facts">
+      <article class="fact"><em>2–3</em><p>年级先招。二年级可以零基础。四年级及以上先登记，不和低年级并班。</p></article>
+      <article class="fact"><em>10–20</em><p>人做第一场验证。看完家长和孩子的反应，再改下一期。</p></article>
+      <article class="fact"><em>15:30</em><p>家长进场。先看下午带走的声光装置和讲义，再听后面的课。</p></article>
+      <article class="fact"><em>0 次</em><p>上门。课在固定工坊上。老师不进家里，也不单卖家访。</p></article>
+    </div>
+
+    <section id="path">
+      <div class="wrap">
+        <p class="sec-kicker">课程路径</p>
+        <h2>一条路，四段作品</h2>
+        <p class="sec-lead">对外是 AI 科创，课堂上 AI 只是工具。主路是传统的那条：先把「如果……就……」玩明白，再调用单片机模块，再让两个装置说上一句话。画电路板和 3D 零件放在后面，等这一期孩子的反馈来了再开。不先卖一条还没上过的长课程。</p>
+        <div class="path" id="stages">
+          <button class="stage" aria-expanded="true">
+            <span class="no">00</span>
+            <span>
+              <h3>体验营 · 先玩一次，再做一件</h3>
+              <p class="meta">10月25日 · 周日 · 39.9 元 · 下午成品带走</p>
+              <span class="detail">
+                <ul>
+                  <li>上午拼装掌心机甲，玩一次，说出它会做的一个动作。机甲留在场内。</li>
+                  <li>下午做一件会亮或会响的小装置，并在 A5 讲义上记下自己做的那一步。装置和讲义带走。</li>
+                  <li>AI 由老师操作：帮忙想一个做法、挑出一个说不通的地方。采纳还是不用，孩子说了算。</li>
+                  <li>15:30 家长进场。孩子先讲下午这件作品，老师再说明后面的课。意向家长进微信群。</li>
+                </ul>
+              </span>
+            </span>
+            <span class="pill now">已经排期</span>
+          </button>
+          <button class="stage" aria-expanded="false">
+            <span class="no">01</span>
+            <span>
+              <h3>积木逻辑 · 规则长在作品上</h3>
+              <p class="meta">体验营之后的第一期 · 大约 8 次 · 一次约 80 分钟</p>
+              <span class="detail">
+                <ul>
+                  <li>用 Scratch 积木写顺序、判断、循环。不背名词，不在屏幕里做完就结束。</li>
+                  <li>每节课前 10 分钟先看见结果：灯亮了、声音响了、轮子转了。</li>
+                  <li>同一任务两个出口：完成规定动作，或多改一处。孩子自己选，老师不临时加题。</li>
+                  <li>结业带走：一件按他自己的规则会反应的装置，并指出改过的那一块积木。</li>
+                </ul>
+              </span>
+            </span>
+            <span class="pill next">下一期</span>
+          </button>
+          <button class="stage" aria-expanded="false">
+            <span class="no">02</span>
+            <span>
+              <h3>单片机模块 · 同一句话搬到硬件上</h3>
+              <p class="meta">第一段做完再开 · Arduino 模块 · 老师处理电池和热胶</p>
+              <span class="detail">
+                <ul>
+                  <li>把「如果……就……」接到灯、蜂鸣器、按钮、距离模块上。</li>
+                  <li>先调用现成模块。不讲 Linux，不讲控制算法。</li>
+                  <li>孩子要能说出三步：它在等什么，它判断了什么，它做出了什么。</li>
+                  <li>结业带走：能检测一件事、做出一个动作的小装置。</li>
+                </ul>
+              </span>
+            </span>
+            <span class="pill later">看反馈再开</span>
+          </button>
+          <button class="stage" aria-expanded="false">
+            <span class="no">03</span>
+            <span>
+              <h3>两个装置说话 · 只讲谁发、谁收</h3>
+              <p class="meta">简单通信 · 不讲协议名词墙</p>
+              <span class="detail">
+                <ul>
+                  <li>按下这边的按钮，另一边的灯亮。没收到，就停下来问人，不假装它听见了。</li>
+                  <li>孩子用自己的话说清：谁发出去，谁在等，失败时第一步查哪里。</li>
+                  <li>结业带走：一对会互相打招呼的小装置。</li>
+                </ul>
+              </span>
+            </span>
+            <span class="pill later">看反馈再开</span>
+          </button>
+          <button class="stage" aria-expanded="false">
+            <span class="no">04</span>
+            <span>
+              <h3>自己的零件 · 电路板草图和 3D</h3>
+              <p class="meta">方向已定，课表未排</p>
+              <span class="detail">
+                <ul>
+                  <li>画出一块自己的板，或量一个尺寸、做出一个零件。</li>
+                  <li>切割和热加工由老师操作。孩子指出形状和尺寸。</li>
+                  <li>这一段等前面积木和单片机课跑完、知道孩子卡在哪里，再写成可上课的册子。</li>
+                </ul>
+              </span>
+            </span>
+            <span class="pill later">未排课</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap split">
+        <article class="card">
+          <p class="sec-kicker">一节正式课</p>
+          <h2>创造力要能指出来</h2>
+          <p class="sec-lead">低年级一次约 80 分钟。离场前，孩子要指出一件今天自己决定的事。档案记的是尝试和卡住的地方，不排名。</p>
+          <ol class="beats">
+            <li><b>1</b><span>先看见一个结果。讲概念之前，灯、声音或轮子先动一次。</span></li>
+            <li><b>2</b><span>两个已经准备好的做法里选一个，并用一句「因为」说出理由。</span></li>
+            <li><b>3</b><span>自己动手。老师每隔一会儿只问一句：你现在卡在哪一步。</span></li>
+            <li><b>4</b><span>离开前说清：我看见什么，我做了什么，哪一件是我决定的，我还想试什么。</span></li>
+          </ol>
+        </article>
+        <article class="card ban">
+          <h3>这些不放进小学课表</h3>
+          <ul>
+            <li>Linux、PID、傅里叶变换。零基础做这些，只会把孩子做成听众。</li>
+            <li>把 AI 聊天框交给孩子自由逛。低年级由老师拿着账号。</li>
+            <li>只在屏幕里交作业。没有能带走的实物，这节课不算完成。</li>
+            <li>排名、保奖、升学承诺。作品用来决定下一步改哪里。</li>
+            <li>上门授课。第一期只在工坊见面。</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap ai-grid">
+        <div>
+          <p class="sec-kicker">AI 怎么用</p>
+          <h2>工具可以借，决定不借</h2>
+          <p class="sec-lead">家长要看见的不是聊天记录，是孩子还讲得清原理。每次用到 AI，册子上只留三行。结课时脱离屏幕也能说出来。</p>
+          <div class="rows">
+            <div class="row"><b>我问了什么</b><span>只问今天这件作品，不问「帮我做完」。</span></div>
+            <div class="row"><b>我采纳了什么</b><span>采纳的那一句，要能指回灯、积木或接线。</span></div>
+            <div class="row"><b>我拒绝了什么</b><span>拒绝也算完成。说明他在做判断，不是在照抄。</span></div>
+          </div>
+        </div>
+        <article class="card">
+          <p class="sec-kicker">老师手上的边界</p>
+          <h3 style="margin:6px 0 8px;font-family:var(--serif);font-size:28px;font-weight:560;">账号不发给孩子</h3>
+          <p>二、三年级不开放自由对话。老师可以事先用 AI 准备图片和一种会失败的例子。课堂上，AI 只做三件事里的一件：解释一句报错，比较两个孩子已经想好的做法，或把孩子自己的话收成几句提纲。</p>
+          <p>电池、热胶、刀具留在教师操作区。孩子的活是选、改、测、讲。</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="camp">
+      <div class="wrap">
+        <p class="sec-kicker">第一场验证</p>
+        <h2>10月25日，一日体验营</h2>
+        <p class="sec-lead">39.9 元用来筛选。名额 10 到 20，不设免费名额。二、三年级、并且家长能在 15:30 到场的优先。填表后人工确认，确认后才付款。超时未付，位置放出。</p>
+        <article class="ticket">
+          <div class="ticket-main">
+            <p class="kicker">上午机甲留在场内 · 下午声光装置带走</p>
+            <h3 style="margin:0;font-family:var(--serif);font-size:32px;font-weight:560;">上午玩明白，下午带回家</h3>
+            <table class="agenda">
+              <tr><th>上午</th><td>拼装掌心机甲，玩一次。每个孩子说出它会做的一个动作。机甲留在场内，不带走。</td></tr>
+              <tr><th>下午</th><td>做一件会亮或会响的小装置，写一页 A5 讲义。测一次成功，一次故意失败。装置和讲义带走。</td></tr>
+              <tr><th>15:30</th><td>家长进场。孩子先讲自己的作品，老师再说明后面的课。微信群只接意向家庭。</td></tr>
+              <tr><th>带走</th><td>只有下午的小装置和讲义。没有这两样，这场营不开。</td></tr>
+            </table>
+          </div>
+          <div class="ticket-side">
+            <div>
+              <p style="margin:0;opacity:.8;">体验营</p>
+              <p class="price"><small>¥</small>39.9</p>
+            </div>
+            <div>
+              <p style="margin:0;">2026年10月25日<br>周日 · 15:30 家长入场<br>二、三年级优先</p>
+              <a class="btn" style="margin-top:12px;background:white;color:#215c50;border-color:white;" href="#signup">填写报名</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="signup">
+      <div class="wrap split">
+        <div>
+          <p class="sec-kicker">报名</p>
+          <h2>先留一个位置</h2>
+          <p class="sec-lead">这一页先不收钱。提交后会生成一张回执，复制或截图发给带你进群的老师。老师确认后，再付 39.9 元。</p>
+          <form id="form" novalidate>
+            <label>家长称呼
+              <input name="parent" autocomplete="name" required>
+              <span class="err" data-for="parent"></span>
+            </label>
+            <label>手机
+              <input name="phone" inputmode="numeric" autocomplete="tel" placeholder="11 位手机号" required>
+              <span class="err" data-for="phone"></span>
+            </label>
+            <label>孩子怎么称呼
+              <input name="child" required>
+              <span class="err" data-for="child"></span>
+            </label>
+            <label>年级
+              <select name="grade" required>
+                <option value="">请选择</option>
+                <option>二年级</option>
+                <option>三年级</option>
+                <option>一年级（先登记，本期不单独开班）</option>
+                <option>四年级及以上（先登记，不和低年级并班）</option>
+              </select>
+              <span class="err" data-for="grade"></span>
+            </label>
+            <label class="full">10月25日能否到场
+              <select name="attend" required>
+                <option value="">请选择</option>
+                <option>能到，上午和下午都在</option>
+                <option>还不确定，先登记</option>
+                <option>这天不行，想等下一场</option>
+              </select>
+              <span class="err" data-for="attend"></span>
+            </label>
+            <label class="full">孩子最近自己鼓捣过的一件小事
+              <textarea name="spark" placeholder="例如：把灯挡住看它灭不灭、把积木搭倒了再搭。没有也可以写「还没」，不要代写成获奖经历。"></textarea>
+            </label>
+            <div class="form-actions">
+              <button class="btn" type="submit">生成报名回执</button>
+              <p class="note">正式课的价格，等体验营看完作品再定。这一页不报价。</p>
+            </div>
+          </form>
+        </div>
+        <div>
+          <article class="receipt" id="receipt" aria-live="polite">
+            <h3>回执已生成</h3>
+            <p class="note">请复制下面这段，发给老师。确认入营后再付款，名额才留下。</p>
+            <pre id="slip"></pre>
+            <button class="btn" type="button" id="copy">复制回执</button>
+            <p class="note" id="copy-state"></p>
+          </article>
+          <article class="card" id="before-receipt">
+            <h3 style="margin:0 0 8px;font-family:var(--serif);font-size:28px;font-weight:560;">确认入营要看三件事</h3>
+            <ul>
+              <li>年级适合这一期。二、三年级优先。</li>
+              <li>10月25日能到场。</li>
+              <li>家长接受：机甲留在场内，下午的装置和讲义带走；15:30 能到场；后面的课在工坊上，不提供上门。</li>
+            </ul>
+            <p class="note">地址写在确认信息里。页面上不公示教室，也不使用任何学校的校徽和校名。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <p class="sec-kicker">家长常问</p>
+        <h2>先把边界说清</h2>
+        <div class="faq">
+          <details open>
+            <summary>四年级已经学过编程，能插班吗？</summary>
+            <p>首期座位先给二、三年级。四年级及以上可以登记，单独成班再开，不和二年级并在同一节奏里。</p>
+          </details>
+          <details>
+            <summary>要自带电脑或开发板吗？</summary>
+            <p>不用。上午的掌心机甲在现场，玩完留在场内。下午的声光装置和 A5 讲义由孩子带走。</p>
+          </details>
+          <details>
+            <summary>会不会是老师做好、孩子只负责合影？</summary>
+            <p>电池、胶枪和刀具由老师处理。选哪一种反应、改哪一处、失败时怎么说，是孩子的。离场要能指出自己决定的那一件。</p>
+          </details>
+          <details>
+            <summary>AI 课是不是在教聊天？</summary>
+            <p>不是。低年级不开放自由对话。AI 用来想一个做法或挑出一个说不通的地方，原理要用孩子自己的话说出来。</p>
+          </details>
+          <details>
+            <summary>正式课多少钱、在哪上？</summary>
+            <p>体验营 39.9 元，确认后再付。正式课价格等这一场看完再定，这一页不报价。上课在固定工坊，不提供上门。地址在确认时告知。</p>
+          </details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <p>量子工坊 · 创造力课 · 2026 秋 · 首期只做小班验证。不承诺获奖、升学或综评加分。</p>
+      <details>
+        <summary>本机报名记录（给现场登记的工作人员）</summary>
+        <p>家长在自己手机上提交时，记录只留在那台手机里。现场如果用同一台电脑登记，可以在这里导出。</p>
+        <button class="btn ghost" type="button" id="export">导出 CSV</button>
+        <div id="local-list"></div>
+      </details>
+    </div>
+  </footer>
+
+  <script>
+    const stages = document.querySelectorAll(".stage");
+    stages.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const open = btn.getAttribute("aria-expanded") === "true";
+        stages.forEach((other) => other.setAttribute("aria-expanded", "false"));
+        btn.setAttribute("aria-expanded", open ? "false" : "true");
+      });
+    });
+
+    const KEY = "qg-camp-20261025";
+    const form = document.getElementById("form");
+    const receipt = document.getElementById("receipt");
+    const before = document.getElementById("before-receipt");
+    const slip = document.getElementById("slip");
+
+    function load() {
+      try { return JSON.parse(localStorage.getItem(KEY) || "[]"); }
+      catch { return []; }
+    }
+    function save(list) { localStorage.setItem(KEY, JSON.stringify(list)); }
+
+    function fieldError(name, msg) {
+      form.querySelector('[data-for="' + name + '"]').textContent = msg || "";
+    }
+
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+      const data = Object.fromEntries(new FormData(form).entries());
+      let ok = true;
+      ["parent", "child", "grade", "attend"].forEach((name) => {
+        const bad = !String(data[name] || "").trim();
+        fieldError(name, bad ? "请填写" : "");
+        if (bad) ok = false;
+      });
+      const phone = String(data.phone || "").replace(/\s/g, "");
+      const phoneBad = !/^1\d{10}$/.test(phone);
+      fieldError("phone", phoneBad ? "请填写 11 位手机号" : "");
+      if (phoneBad) ok = false;
+      if (!ok) return;
+
+      const list = load();
+      const id = "QG-1025-" + String(100 + list.length + 1);
+      const item = {
+        id,
+        time: new Date().toLocaleString("zh-CN", { hour12: false }),
+        parent: data.parent.trim(),
+        phone,
+        child: data.child.trim(),
+        grade: data.grade,
+        attend: data.attend,
+        spark: (data.spark || "").trim() || "还没写"
+      };
+      list.push(item);
+      save(list);
+      slip.textContent = [
+        "【量子工坊 · 创造力课体验营】",
+        "回执 " + item.id,
+        "家长 " + item.parent,
+        "手机 " + item.phone,
+        "孩子 " + item.child,
+        "年级 " + item.grade,
+        "10月25日 " + item.attend,
+        "最近鼓捣过 " + item.spark,
+        "确认后再付 39.9 元。付款完成才占位置。"
+      ].join("\n");
+      before.hidden = true;
+      receipt.classList.add("show");
+      document.getElementById("copy-state").textContent = "";
+      renderLocal();
+      receipt.scrollIntoView({ behavior: "smooth", block: "center" });
+    });
+
+    document.getElementById("copy").addEventListener("click", async () => {
+      const text = slip.textContent;
+      try {
+        await navigator.clipboard.writeText(text);
+        document.getElementById("copy-state").textContent = "已复制。发给老师即可。";
+      } catch {
+        document.getElementById("copy-state").textContent = "复制没成功，请长按上面的文字手动复制。";
+      }
+    });
+
+    function renderLocal() {
+      const list = load();
+      const box = document.getElementById("local-list");
+      if (!list.length) {
+        box.innerHTML = "<p>这台浏览器里还没有报名。</p>";
+        return;
+      }
+      const rows = list.map((item) =>
+        "<tr><td>" + item.id + "</td><td>" + item.child + "</td><td>" + item.grade + "</td><td>" + item.phone + "</td><td>" + item.attend + "</td></tr>"
+      ).join("");
+      box.innerHTML = "<table class='export'><tr><th>回执</th><th>孩子</th><th>年级</th><th>手机</th><th>到场</th></tr>" + rows + "</table>";
+    }
+
+    document.getElementById("export").addEventListener("click", () => {
+      const list = load();
+      if (!list.length) return;
+      const header = ["回执", "时间", "家长", "手机", "孩子", "年级", "到场", "鼓捣过"];
+      const lines = [header.join(",")].concat(list.map((item) =>
+        [item.id, item.time, item.parent, item.phone, item.child, item.grade, item.attend, item.spark]
+          .map((value) => '"' + String(value).replaceAll('"', '""') + '"').join(",")
+      ));
+      const blob = new Blob(["\uFEFF" + lines.join("\n")], { type: "text/csv;charset=utf-8" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "创造力课体验营报名.csv";
+      a.click();
+      URL.revokeObjectURL(url);
+    });
+
+    renderLocal();
+  </script>
+</body>
+</html>

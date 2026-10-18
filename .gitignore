@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+.DS_Store
+.env
+credentials.json
+
+# 真实学生资料和财务凭证只留在本机，不进仓库
+学生信息/**
+!学生信息/README.md
+财务/**
+!财务/README.md
